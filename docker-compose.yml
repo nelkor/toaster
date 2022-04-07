@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./hleb:/hleb
+      - ./log:/log
+    ports:
+      - 5125:80
+
+  php:
+    build: ./docker
+    image: hleb-php
+    volumes:
+      - ./hleb:/hleb
