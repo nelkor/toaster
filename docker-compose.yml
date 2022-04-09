@@ -8,10 +8,27 @@ services:
       - ./hleb:/hleb
       - ./log:/log
     ports:
-      - 5125:80
+      - '5125:80'
 
   php:
     build: ./docker
     image: hleb-php
     volumes:
       - ./hleb:/hleb
+
+  db:
+    image: mariadb
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: hleb
+      MYSQL_USER: hleb
+      MYSQL_PASSWORD: hleb
+      MARIADB_RANDOM_ROOT_PASSWORD: ok
+    ports:
+      - '3306:3306'
+
+  pma:
+    image: phpmyadmin
+    ports:
+      - '8080:80'
