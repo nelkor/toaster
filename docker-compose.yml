@@ -12,7 +12,6 @@ services:
 
   php:
     build: ./docker
-    image: hleb-php
     volumes:
       - ./hleb:/hleb
 
