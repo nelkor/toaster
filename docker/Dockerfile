@@ -9,4 +9,6 @@ RUN apt update \
   && apt install unzip \
   && curl -sS https://getcomposer.org/installer -o composer-setup.php \
   && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+  && composer global require "friendsofphp/php-cs-fixer" \
+  && echo "export PATH=\$PATH:/root/.composer/vendor/bin" > /root/.bashrc \
   && php /root/change-entrypoint.php
