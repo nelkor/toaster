@@ -12,8 +12,11 @@ services:
 
   php:
     build: ./docker
+    environment:
+      PHP_IDE_CONFIG: "serverName=hleb"
     volumes:
       - ./hleb:/hleb
+      - ./docker/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
 
   db:
     image: mariadb

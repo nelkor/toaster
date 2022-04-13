@@ -11,4 +11,6 @@ RUN apt update \
   && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
   && composer global require "friendsofphp/php-cs-fixer" \
   && echo "export PATH=\$PATH:/root/.composer/vendor/bin" > /root/.bashrc \
+  && pecl install xdebug \
+  && docker-php-ext-enable xdebug \
   && php /root/change-entrypoint.php
