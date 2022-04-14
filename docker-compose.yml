@@ -13,7 +13,7 @@ services:
   php:
     build: ./docker
     environment:
-      PHP_IDE_CONFIG: "serverName=hleb"
+      PHP_IDE_CONFIG: "serverName=toaster"
     volumes:
       - ./hleb:/hleb
       - ./docker/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
@@ -25,12 +25,15 @@ services:
     environment:
       MYSQL_DATABASE: hleb
       MYSQL_USER: hleb
-      MYSQL_PASSWORD: hleb
+      MYSQL_PASSWORD: toaster
       MARIADB_RANDOM_ROOT_PASSWORD: ok
     ports:
       - '3306:3306'
 
   pma:
     image: phpmyadmin
+    environment:
+      PMA_USER: hleb
+      PMA_PASSWORD: toaster
     ports:
       - '8080:80'

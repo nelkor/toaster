@@ -3,6 +3,7 @@ FROM php:8.1-fpm
 WORKDIR /root
 
 COPY ./init.php /root/init.php
+COPY ./dbase.config.php /root/dbase.config.php
 COPY ./change-entrypoint.php /root/change-entrypoint.php
 
 RUN apt update \
@@ -13,4 +14,5 @@ RUN apt update \
   && echo "export PATH=\$PATH:/root/.composer/vendor/bin" > /root/.bashrc \
   && pecl install xdebug \
   && docker-php-ext-enable xdebug \
+  && docker-php-ext-install pdo_mysql \
   && php /root/change-entrypoint.php
