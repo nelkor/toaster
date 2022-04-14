@@ -1,19 +1,68 @@
-# HLEB Starter
+# Тостер
 
-A starter project using [microframework HLEB](https://github.com/phphleb/hleb)
+Заготовка для разработки приложения
+на [микрофреймворке HLEB](https://github.com/phphleb/hleb)
+(приготовления хлеба)
 
-## Installation and launch
+[Сайт](https://phphleb.ru) хлеба
+и [инструкция](https://phphleb.ru/ru/v1/) по приготовлению
 
-1. Downloading the required images:  
-  `docker-compose pull`
-2. Building our own image:  
-  `docker-compose build`
-3. Starting services  
-  `docker-compose up -d`
+## Чтобы начать
 
-## Shutting down
+- имейте установленный Docker
+- скачайте этот репозиторий
+- `docker-compose up -d`
 
-- Pausing containers  
-  `docker-compose stop`
-- Removing containers  
-  `docker-compose down`
+## Вы получите
+
+<details>
+  <summary>Свежий хлеб</summary>
+
+  После запуска контейнеров в корне проекта будет создана директория `hleb`
+  со свежим проектом [phphleb](https://packagist.org/packages/phphleb/hleb)
+</details>
+
+<details>
+  <summary>Локальный сервер</summary>
+
+  По умолчанию [localhost:5125](http://localhost:5125).
+  Если не устаивает порт, отредактируйте сервис `nginx` в `docker-compose.yml`
+</details>
+
+<details>
+  <summary>MariaDB</summary>
+
+  [Что это?](https://mariadb.org/)  
+  В свежем проекте `hleb` автоматически будет создан файл
+  `./database/dbase.config.php` с конфигурацией подключения к СУБД.
+  Можно сразу пользоваться!
+</details>
+
+<details>
+  <summary>phpMyAdmin</summary>
+
+  [Что это?](https://www.phpmyadmin.net/)  
+  По умолчанию [localhost:8080](http://localhost:8080).
+  Авторизация автоматическая.
+  Если не устаивает порт, отредактируйте сервис `pma` в `docker-compose.yml`
+</details>
+
+<details>
+  <summary>Xdebug</summary>
+
+  [Что это?](https://xdebug.org/)  
+  Конфигурационный файл — `docker/xdebug.ini`.
+  По умолчанию порт `9003`. В `docker-compose.yml` задаём `serverName`.
+  По умолчанию `serverName=toaster`
+</details>
+
+<details>
+  <summary>PHP Coding Standards Fixer</summary>
+
+  [Что это?](https://cs.symfony.com/)  
+  Без [конфигурации](https://cs.symfony.com/doc/config.html).
+  Шпаргалка по правилам
+  [здесь](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.7).
+  После создания свежего проекта автоматически редактирует файлы
+  с применением правил (поджаривает хлеб)
+</details>
