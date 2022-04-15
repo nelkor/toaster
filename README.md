@@ -7,10 +7,10 @@
 [Сайт](https://phphleb.ru) хлеба
 и [инструкция](https://phphleb.ru/ru/v1/) по приготовлению
 
-## Чтобы начать
+## Для запуска потребуется
 
-- имейте установленный Docker
-- скачайте этот репозиторий
+- [Docker](https://www.docker.com)
+- этот репозиторий
 - `docker-compose up -d`
 
 ## Вы получите
@@ -26,7 +26,7 @@
   <summary>Локальный сервер</summary>
 
   По умолчанию [localhost:5125](http://localhost:5125).
-  Если не устаивает порт, отредактируйте сервис `nginx` в `docker-compose.yml`
+  Если не устраивает порт, отредактируйте сервис `nginx` в `docker-compose.yml`
 </details>
 
 <details>
@@ -44,7 +44,7 @@
   [Что это?](https://www.phpmyadmin.net/)  
   По умолчанию [localhost:8080](http://localhost:8080).
   Авторизация автоматическая.
-  Если не устаивает порт, отредактируйте сервис `pma` в `docker-compose.yml`
+  Если не устраивает порт, отредактируйте сервис `pma` в `docker-compose.yml`
 </details>
 
 <details>
