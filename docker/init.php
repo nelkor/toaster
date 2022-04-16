@@ -6,4 +6,5 @@ if (count(scandir('/hleb')) == 2) {
     rename('/root/dbase.config.php', '/hleb/database/dbase.config.php');
     exec('/root/.composer/vendor/bin/php-cs-fixer fix /hleb');
     exec('chown -R www-data:www-data /hleb');
+    exec('chmod -R 777 /hleb');
 }
