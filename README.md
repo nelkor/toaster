@@ -60,7 +60,8 @@
   <summary>PHP Coding Standards Fixer</summary>
 
   [Что это?](https://cs.symfony.com/)  
-  Без [конфигурации](https://cs.symfony.com/doc/config.html).
+  [Конфигурация](https://cs.symfony.com/doc/config.html)
+  из `docker/.php-cs-fixer.php` копируется в `/hleb`.
   Шпаргалка по правилам
   [здесь](https://mlocati.github.io/php-cs-fixer-configurator/#version:3.7).
   После создания свежего проекта автоматически редактирует файлы
