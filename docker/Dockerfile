@@ -1,6 +1,6 @@
 FROM php:8.1-fpm
 
-COPY ./root /root
+COPY ./docker/root /root
 
 WORKDIR /root
 
@@ -17,3 +17,7 @@ RUN apt update \
   && docker-php-ext-install pdo_mysql \
   && docker-php-ext-install gd \
   && php /root/change-entrypoint.php
+
+COPY .env /root/.env
+
+RUN usermod -aG root www-data
