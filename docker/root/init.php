@@ -17,5 +17,5 @@ if (count(scandir('/hleb')) == 2) {
 }
 
 function setDbEnvParams($envName) {
-    file_put_contents('/root/dbase.config.php', str_replace($envName, getenv($envName), file('/root/dbase.config.php')));
+    file_put_contents('/root/dbase.config.php', str_replace($envName, getenv($envName), file_get_contents('/root/dbase.config.php')));
 }
