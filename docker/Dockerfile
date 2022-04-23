@@ -8,6 +8,7 @@ RUN apt update \
   && apt install unzip \
   && apt install -y zlib1g-dev \
   && apt install -y libpng-dev \
+  && apt install -y vim nano \
   && curl -sS https://getcomposer.org/installer -o composer-setup.php \
   && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
   && composer global require "friendsofphp/php-cs-fixer" \
