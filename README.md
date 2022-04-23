@@ -26,7 +26,7 @@
   <summary>Локальный сервер</summary>
 
   По умолчанию [localhost:5125](http://localhost:5125).
-  Если не устраивает порт, отредактируйте файл `.env`
+  Если не устраивает порт, отредактируйте `SERVER_EXTERNAL_PORT` в файле `.env`
 </details>
 
 <details>
@@ -44,7 +44,7 @@
   [Что это?](https://www.phpmyadmin.net/)  
   По умолчанию [localhost:8080](http://localhost:8080).
   Авторизация автоматическая.
-  Если не устраивает порт, отредактируйте файл `.env`
+  Если не устраивает порт, отредактируйте `PMA_EXTERNAL_PORT` в файле `.env`
 </details>
 
 <details>
