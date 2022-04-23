@@ -31,7 +31,7 @@ services:
     volumes:
       - ./db:/var/lib/mysql
     ports:
-      - "${DATABASE_EXTERNAL_PORT}:${MYSQL_DATABASE_PORT}"
+      - "${DATABASE_EXTERNAL_PORT}:3306"
 
   pma:
     image: phpmyadmin
