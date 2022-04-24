@@ -1,10 +1,10 @@
 FROM php:8.1-fpm
 
-COPY ./docker/root /root
+COPY ./root /root
 
 WORKDIR /root
 
-RUN apt update \
+RUN  apt update \
   && apt install unzip \
   && apt install -y zlib1g-dev \
   && apt install -y libpng-dev \
@@ -19,6 +19,3 @@ RUN apt update \
   && docker-php-ext-install gd \
   && php /root/change-entrypoint.php
 
-COPY .env /root/.env
-
-RUN usermod -aG root www-data
