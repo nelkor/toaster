@@ -3,37 +3,40 @@ version: '3'
 services:
   nginx:
     image: nginx
+    env_file:
+      - .env
     volumes:
       - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ./hleb:/hleb
       - ./log:/log
     ports:
-      - '5125:80'
+      - '${SERVER_EXTERNAL_PORT}:80'
 
   php:
-    build: ./docker
     environment:
-      PHP_IDE_CONFIG: "serverName=toaster"
+      PHP_IDE_CONFIG: 'serverName=toaster'
+    build: ./docker
+    env_file:
+      - .env
     volumes:
       - ./hleb:/hleb
       - ./docker/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
 
   db:
     image: mariadb
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: 'ok'
+    env_file:
+        - .env
     volumes:
       - ./db:/var/lib/mysql
-    environment:
-      MYSQL_DATABASE: hleb
-      MYSQL_USER: hleb
-      MYSQL_PASSWORD: toaster
-      MARIADB_RANDOM_ROOT_PASSWORD: ok
     ports:
-      - '3306:3306'
+      - '${DATABASE_EXTERNAL_PORT}:3306'
 
   pma:
     image: phpmyadmin
     environment:
-      PMA_USER: hleb
-      PMA_PASSWORD: toaster
+      PMA_USER: ${MYSQL_USER}
+      PMA_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - '8080:80'
+      - '${PMA_EXTERNAL_PORT}:80'

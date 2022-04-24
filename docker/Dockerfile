@@ -4,10 +4,13 @@ COPY ./root /root
 
 WORKDIR /root
 
-RUN apt update \
-  && apt install unzip \
-  && apt install -y zlib1g-dev \
-  && apt install -y libpng-dev \
+RUN  apt update \
+  && apt install -y \
+    unzip \
+    zlib1g-dev \
+    libpng-dev \
+    vim \
+    nano \
   && curl -sS https://getcomposer.org/installer -o composer-setup.php \
   && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
   && composer global require "friendsofphp/php-cs-fixer" \
