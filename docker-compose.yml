@@ -27,7 +27,7 @@ services:
     environment:
       MARIADB_RANDOM_ROOT_PASSWORD: 'ok'
     env_file:
-        - .env
+      - .env
     volumes:
       - ./db:/var/lib/mysql
     ports:
